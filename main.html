@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Open-Tab</title>
+        <script>
+        function openWindow(){
+            var x = document.getElementById('urlArea').value.split('\n');
+            for (var i = 0; i < x.length; i++)
+                if (x[i].indexOf('.') > 0)
+                    if (x[i].indexOf('://') < 0)
+                        window.open('http://'+x[i]);
+                    else
+                        window.open(x[i]);
+            }
+        </script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+
+    </head>
+    <body>
+        <h1>Open-Tab</h1>
+        <div class="container">
+            <textarea id="urlArea" placeholder="Enter URLs..."></textarea>
+            <br>
+            <div class="btnContainer">
+                <input class="btn" type="button" value="Open Tabs" onClick="openWindow()">
+                <input class="btn" type="button" value="Clear" onClick="document.getElementById('urlArea').value=''">
+            </div>
+        </div>
+    </body>
+</html>
